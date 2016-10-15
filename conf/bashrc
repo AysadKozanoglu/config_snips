@@ -1,0 +1,72 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "`dircolors`"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+#
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+# Shorten home dir, cygwin drives, paths that are too long
+# (just bourne; no perl, sed, or bashisms!)
+
+
+HOST='\033[02;36m\]\h'; HOST=' '$HOST
+TIME='\033[01;31m\]\t \033[01;32m\]'
+LOCATION=' \033[01;34m\]`pwd | sed "s#\(/[^/]\{1,\}/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1_\2#g"`'
+BRANCH=' \033[00;33m\]$(git_branch)\[\033[00m\]\n\$ '
+PS1=$TIME$USER$HOST$LOCATION$BRANCH
+PS2='\[\033[01;36m\]>'
+
+
+function PSWD() {
+  local p="$*" parta partb
+  if [ "$p" = "${HOME:-empty}${p#$HOME}" ]
+    then p="~${p#$HOME}"
+  fi
+  # Fix Cygwin drive designations
+  if [ "$OS" != "${OS#*CYGWIN}" -a "${p#/cygdrive}" != "$p" ]; then
+    p="${p#/cygdrive/}"
+    parta="${p%%/*}"
+    if [ -z "$parta" ]
+      then p="$p:"
+      else p="$parta:${p#?}"
+    fi
+  fi
+  # if the resulting path is 34+ characters, truncate it
+  parta="${p#??????????????????????????????????}"
+  if [ "${parta:-$p}" != "$p" ]; then
+    parta="${p#??????????}"     # the path, minus the first 10 chars
+    parta="${p%$parta}"         # the first 10 chars of the path
+    partb="${p%????????????????????}"   # the path, minus the last 20 chars
+    partb="${p#$partb}"         # the last 20 chars of the path
+    p="$parta...$partb"         # 10 chars plus 3 dots plus 20 chars = 33
+  fi
+  echo "$p"
+}
+
+PSC() { echo -ne "\[\033[${1:-0;38}m\]"; }
+PR="0;32"       # default color used in prompt is green
+if [ "$(id -u)" = 0 ]; then
+    sudo=41     # root is red background
+  elif [ "$USER" != "${SUDO_USER:-$USER}" ]; then
+    sudo=31     # not root, not self: red text
+  else sudo="$PR"   # standard user color
+fi
+PROMPT_COMMAND='[ $? = 0 ] && PS1=${PS1[1]} || PS1=${PS1[2]}'
+PSbase="$(PSC $sudo)\u$(PSC $PR)@\h $(PSC 33)\$(PSWD \w)"
+PS1[1]="$PSbase$(PSC $PR)\$ $(PSC)"
+PS1[2]="$PSbase$(PSC  31)\$ $(PSC)"
+PS1="${PS1[1]}"
+unset sudo PR PSbase
+alias ls='ls -l --color'
