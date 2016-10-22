@@ -5,11 +5,14 @@
 # web: http://onweb.pe.hu
 #
 
-
+uname -s
+uname -m
 lsb_release -si
-echo ""
 lsb_release -sr
-echo ""
 lsb_release -sc
-echo ""
 lsb_release -sd
+echo ""
+echo "network"
+echo "-------"
+ifconfig | grep encap
+ifconfig | grep Bcast
