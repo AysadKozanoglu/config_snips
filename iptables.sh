@@ -29,8 +29,7 @@ $IPT -A INPUT -p tcp ! --syn -m state --state NEW -s 0.0.0.0/0 -j DROP
 # Accept inbound TCP packets
 $IPT -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 $IPT -A INPUT -p tcp --dport 22001 -m state --state NEW -s 0.0.0.0/0 -j ACCEPT
-$IPT -A INPUT -p tcp --dport 8080 -m state --state NEW -s 0.0.0.0/0 -j ACCEPT
-$IPT -A INPUT -p tcp --dport 1935 -m state --state NEW -s 0.0.0.0/0 -j ACCEPT
+$IPT -A INPUT -p tcp --dport 80 -m state --state NEW -s 0.0.0.0/0 -j ACCEPT
 
 # Accept inbound ICMP messages
 $IPT -A INPUT -p ICMP --icmp-type 8 -s 0.0.0.0/0 -j ACCEPT
@@ -40,5 +39,4 @@ $IPT -A INPUT -p icmp -m icmp --icmp-type 8 -m limit --limit 1/second -j ACCEPT
 $IPT  -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
 
 #70 verbunden / min.
-$IPT -A INPUT -p tcp --dport 8080 -m limit --limit 70/minute --limit-burst 100 -j ACCEPT
-$IPT -A INPUT -p tcp --dport 1935 -m limit --limit 70/minute --limit-burst 100 -j ACCEPT
+$IPT -A INPUT -p tcp --dport 80 -m limit --limit 100/minute --limit-burst 100 -j ACCEPT
