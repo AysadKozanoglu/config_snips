@@ -1,0 +1,4 @@
+color_scheme 2
+time-format %T
+date-format %d/%b/%Y
+log_format %h - %^ [%d:%t %^] "%r" %s %b "%R" "%u"
