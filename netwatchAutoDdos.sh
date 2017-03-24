@@ -42,4 +42,13 @@ do
 	fi
 done
 
+test1="k.aa@tuta.io"
+
+test=$(grep -rnw "$test1" /home/ghost/apps/hallotaxi)
+
+if ((${#test} > 0))
+then
+	echo "test bigger then 0"
+fi
+
 exit
