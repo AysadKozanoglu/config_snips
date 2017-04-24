@@ -14,4 +14,18 @@
 #
 #		standart ist 10
 
-watch /usr/local/sbin/part_code_netConnection.sh $1
+limit=10
+
+if [ -z $1 ]
+then
+ echo -e "\e[91mFehler: Limit parameter fehlt\e[0m"
+ echo -e "\e[92mBeispiel: $0 20 \e[0m"
+exit 0
+fi
+
+if [ -n $1 ]
+then
+  limit=$1
+fi
+
+watch /usr/local/sbin/part_code_netConnection.sh $limit
