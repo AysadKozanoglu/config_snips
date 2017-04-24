@@ -20,7 +20,7 @@ n=$(netstat -atun | awk '{print $5}' | cut -d: -f1 | sed -e '/^$/d' |sort | uniq
 # max connections allowed
 burst=50
 nextBan=0
-
+IPT=$(which iptables)
 for k in $n
 do
 	#echo $k
@@ -29,8 +29,9 @@ do
 	then
 		#Get the first block of ip adress to block whole /16 subnet source adresses
 		subnet=$(echo $k | cut -d. -f1-2)
-		iptables -I INPUT -s $subnet.0.0/16 -j DROP
+		$IPT -I INPUT -s $subnet.0.0/16 -j DROP
 		nextBan=0
+		$IPT --list | grep DROP
     fi
 	if [ "$k" -eq "$k" ] 2>/dev/null; 
 	then
@@ -41,5 +42,4 @@ do
     	fi
 	fi
 done
-
 exit
