@@ -33,7 +33,8 @@ echo "4. Backup"
 tput bold
 tput cup 12 15
 read -p "Enter your choice [1-4] " choice
- 
 tput clear
 tput sgr0
 tput rc
+
+echo ${choice} 

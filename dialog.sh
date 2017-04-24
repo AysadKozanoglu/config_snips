@@ -1,7 +1,7 @@
 #!/bin/bash
 dialog --title "HLSPANEL.COM installation Path" \
 --backtitle "HLSPANEL installation " \
---yesno "Would you like to install hlspanel on your serve  \"/home/hlspanel/\"?" 7 60
+--yesno "Would you like to install hlspanel on your serve  \"/home/hlspanel/\"?" 17 60
 
 
 #  
