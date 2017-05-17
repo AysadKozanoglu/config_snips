@@ -18,8 +18,10 @@ append_dot_mydomain = no
 readme_directory = no
 
 # TLS parameters
+
 smtpd_tls_cert_file = /etc/postfix/sslcert/server.crt
 smtpd_tls_key_file = /etc/postfix/sslcert/server.key
+
 smtpd_use_tls=yes
 smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
 smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
@@ -27,17 +29,18 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
-myhostname = mail.playandsurf.com
+#smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+myhostname = debian
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 myorigin = /etc/mailname
-mydestination = mail.playandsurf.com, localhost.playandsurf.com, , localhost
+mydestination = server1.iptvpanel.de, debian, localhost.localdomain, localhost
 relayhost = 
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+mailbox_command = procmail -a "$EXTENSION"
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
-
 
 # a bit more spam protection
 disable_vrfy_command = yes
@@ -53,25 +56,75 @@ proxy_read_maps = $local_recipient_maps $mydestination $virtual_alias_maps $virt
  
 smtpd_sender_login_maps = proxy:mysql:/etc/postfix/mysql_sender_login_maps.cf
  
-smtpd_sender_restrictions = reject_authenticated_sender_login_mismatch
-        reject_unknown_sender_domain
+#smtpd_sender_restrictions = reject_authenticated_sender_login_mismatch
+# reject_unknown_sender_domain
  
-smtpd_recipient_restrictions = permit_sasl_authenticated
-        permit_mynetworks
-   	reject_invalid_hostname,
-   	reject_non_fqdn_hostname,
-   	reject_non_fqdn_sender,
-   	reject_non_fqdn_recipient,
-   	reject_unknown_sender_domain,
-   	reject_unknown_recipient_domain,
-   	reject_unauth_destination,
-#   	reject_rbl_client list.dsbl.org,
-#   	reject_rbl_client sbl-xbl.spamhaus.org,
-#   	reject_rbl_client cbl.abuseat.org,
-#   	reject_rbl_client dul.dnsbl.sorbs.net,
-        reject_rbl_client zen.spamhaus.org,
-        reject_rbl_client list.dsbl.org,
-   	permit
+
+# Restrictions
+
+# nachricht an den entfernten SMTP-Server, wenn er als "Spam-Schleuder" erkannt wurde
+default_rbl_reply = $rbl_code RBLTRAP: Sorry, but I decided that you are a spammer, you are not welcome here!
+
+# Zum eigene Wohl nicht ändern ;)
+smtpd_delay_reject = yes
+
+# Wir wollen begrüßt werden
+smtpd_helo_required = yes
+
+# Die Begrüßung muss aber höflich und korrekt sein :)
+smtpd_helo_restrictions =
+ permit_sasl_authenticated
+ permit_mynetworks
+ reject_unauth_destination
+ reject_non_fqdn_sender
+ reject_non_fqdn_recipient
+ reject_unknown_recipient_domain
+ reject_non_fqdn_hostname
+ reject_invalid_hostname
+ reject_rbl_client zen.spamhaus.org
+ reject_unauth_pipelining
+ permit
+
+# Das Wichtigste: die Empfänger-Beschränkungen
+smtpd_recipient_restrictions =
+ permit_sasl_authenticated
+ permit_mynetworks
+# check_policy_service inet:127.0.0.1:60000
+ reject_invalid_hostname
+ reject_non_fqdn_hostname
+ reject_non_fqdn_recipient
+ reject_non_fqdn_sender
+ reject_unknown_sender_domain
+ reject_unknown_recipient_domain
+ reject_sender_login_mismatch
+ reject_unauth_pipelining
+ reject_unauth_destination
+ reject_multi_recipient_bounce
+ reject_non_fqdn_helo_hostname
+ reject_invalid_helo_hostname
+ reject_rbl_client zen.spamhaus.org
+ permit
+
+# Die Sender-Restriktionen
+smtpd_sender_restrictions =
+ permit_sasl_authenticated
+ permit_mynetworks
+ reject_unauth_destination
+ reject_non_fqdn_sender
+ reject_non_fqdn_recipient
+ reject_unknown_recipient_domain
+ reject_unauth_pipelining
+ reject_rbl_client zen.spamhaus.org
+ permit
+
+# Die MUA Restriktionen
+smtpd_client_restrictions = reject_invalid_hostname
+
+# Mail Body Restriktionen
+smtpd_data_restrictions =
+ reject_unauth_pipelining
+ reject_multi_recipient_bounce
+ permit
  
 # Mailboxen
 virtual_alias_maps = proxy:mysql:/etc/postfix/mysql_virtual_alias_maps.cf
@@ -80,7 +133,7 @@ virtual_mailbox_domains = proxy:mysql:/etc/postfix/mysql_virtual_domains_maps.cf
 virtual_mailbox_limit = 124000000
 virtual_mailbox_maps = proxy:mysql:/etc/postfix/mysql_virtual_mailbox_maps.cf
 virtual_minimum_uid = 104
-virtual_transport = virtual
+#virtual_transport = virtual
 virtual_uid_maps = static:5000
 virtual_gid_maps = static:5000
 virtual_transport = dovecot
