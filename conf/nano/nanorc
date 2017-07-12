@@ -19,10 +19,10 @@
 # set autoindent
 
 ## Backup files to filename~.
-# set backup
+ set backup
 
 ## The directory to put unique backup files in.
-# set backupdir ""
+ set backupdir "/home/kozanoglu/nano_dited_backups"
 
 ## Do backwards searches by default.
 # set backwards
@@ -42,7 +42,7 @@
 
 ## Constantly display the cursor position in the statusbar.  Note that
 ## this overrides "quickblank".
-# set const
+ set const
 
 ## Use cut to end of line by default.
 # set cut
@@ -233,74 +233,74 @@ set suspend
 
 
 ## Nanorc files
-include "/usr/share/nano/nanorc.nanorc"
+include "/home/kozanoglu/.nano/nanorc.nanorc"
 
 ## C/C++
-include "/usr/share/nano/c.nanorc"
+include "/home/kozanoglu/.nano/c.nanorc"
 
 ## Cascading Style Sheets
-include "/usr/share/nano/css.nanorc"
+include "/home/kozanoglu/.nano/css.nanorc"
 
 ## Debian files
-include "/usr/share/nano/debian.nanorc"
+include "/home/kozanoglu/.nano/debian.nanorc"
 
 ## Gentoo files
-include "/usr/share/nano/gentoo.nanorc"
+include "/home/kozanoglu/.nano/gentoo.nanorc"
 
 ## HTML
-include "/usr/share/nano/html.nanorc"
+include "/home/kozanoglu/.nano/html.nanorc"
 
 ## PHP
-include "/usr/share/nano/php.nanorc"
+include "/home/kozanoglu/.nano/php.nanorc"
 
 ## TCL
-include "/usr/share/nano/tcl.nanorc"
+include "/home/kozanoglu/.nano/tcl.nanorc"
 
 ## TeX
-include "/usr/share/nano/tex.nanorc"
+include "/home/kozanoglu/.nano/tex.nanorc"
 
 ## Quoted emails (under e.g. mutt)
-include "/usr/share/nano/mutt.nanorc"
+include "/home/kozanoglu/.nano/mutt.nanorc"
 
 ## Patch files
-include "/usr/share/nano/patch.nanorc"
+include "/home/kozanoglu/.nano/patch.nanorc"
 
 ## Manpages
-include "/usr/share/nano/man.nanorc"
+include "/home/kozanoglu/.nano/man.nanorc"
 
 ## Groff
-include "/usr/share/nano/groff.nanorc"
+include "/home/kozanoglu/.nano/groff.nanorc"
 
 ## Perl
-include "/usr/share/nano/perl.nanorc"
+include "/home/kozanoglu/.nano/perl.nanorc"
 
 ## Python
-include "/usr/share/nano/python.nanorc"
+include "/home/kozanoglu/.nano/python.nanorc"
 
 ## Ruby
-include "/usr/share/nano/ruby.nanorc"
+include "/home/kozanoglu/.nano/ruby.nanorc"
 
 ## Java
-include "/usr/share/nano/java.nanorc"
+include "/home/kozanoglu/.nano/java.nanorc"
 
 ## AWK
-include "/usr/share/nano/awk.nanorc"
+include "/home/kozanoglu/.nano/awk.nanorc"
 
 ## Assembler
-include "/usr/share/nano/asm.nanorc"
+include "/home/kozanoglu/.nano/asm.nanorc"
 
 ## Bourne shell scripts
-include "/usr/share/nano/sh.nanorc"
+include "/home/kozanoglu/.nano/sh.nanorc"
 
 ## POV-Ray
-include "/usr/share/nano/pov.nanorc"
+include "/home/kozanoglu/.nano/pov.nanorc"
 
 ## XML-type files
-include "/usr/share/nano/xml.nanorc"
+include "/home/kozanoglu/.nano/xml.nanorc"
 
 ## nginx
-include "/usr/share/nano/nginx.nanorc"
+include "/home/kozanoglu/.nano/nginx.nanorc"
 
 ## javascript
-include "/usr/share/nano/javascript.nanorc"
-include "/usr/share/nano/js.nanorc"
+include "/home/kozanoglu/.nano/javascript.nanorc"
+include "/home/kozanoglu/.nano/js.nanorc"
