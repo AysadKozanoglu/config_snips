@@ -1,3 +1,4 @@
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
 # Note: PS1 and umask are already set in /etc/profile. You should not
@@ -20,8 +21,6 @@
 # Shorten home dir, cygwin drives, paths that are too long
 # (just bourne; no perl, sed, or bashisms!)
 
-
-# test 
 
 HOST='\033[02;36m\]\h'; HOST=' '$HOST
 TIME='\033[01;31m\]\t \033[01;32m\]'
@@ -72,3 +71,9 @@ PS1[2]="$PSbase$(PSC  31)\$ $(PSC)"
 PS1="${PS1[1]}"
 unset sudo PR PSbase
 alias ls='ls -l --color'
+
+
+
+HOST=$(hostname -f)
+export PS1="\[\e[00;32m\]\u\[\e[0m\]\[\e[00;37m\]@\h \[\e[0m\]\[\e[00;33m\]\@\[\e[0m\]\[\e[00;36m\][\w]\[\e[0m\]\n"
+export PROMPT_COMMAND='printf "\033]0;Barbers Server $HOST Server Management -  Aysad Kozanoglu - Uptime: %s\007" "`uptime`"'
