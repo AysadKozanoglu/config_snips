@@ -1,0 +1,9 @@
+syntax on
+colo evening
+set wildmenu
+
+set showcmd
+
+set hlsearch
+
+set number
