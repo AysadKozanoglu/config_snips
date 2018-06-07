@@ -2,8 +2,8 @@
 howto link:
 http://aysad.pe.hu/note/index.php?controller=post&action=view&id_post=146
 
-### Vserver 1 ###
-<pre>
+### Vserver 1 
+
 # The loopback network interface
 auto lo
 iface lo inet loopback
@@ -43,10 +43,9 @@ gateway X.X.X.X
 iface eth0:ucarp inet static
  address 185.243.10.23
  netmask 255.255.255.255
- </pre>
  
- ### vserver 2 ###
- <pre>
+ 
+ ### vserver 2 
  # The primary network interface
 auto eth0
 #iface eth0 inet dhcp
@@ -81,4 +80,3 @@ gateway X.X.X.X
 iface eth0:ucarp inet static
  address 185.243.10.23
  netmask 255.255.255.255
- </pre>
