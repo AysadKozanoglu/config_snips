@@ -1,4 +1,6 @@
 #! /bin/sh
+# author: Aysad Kozanoglu
+# email: aysadx@gmail.com
 
 echo 'deb http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list
 echo 'deb-src http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list
