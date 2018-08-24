@@ -1,7 +1,8 @@
 #! /bin/sh
 # author: Aysad Kozanoglu
 # email: aysadx@gmail.com
-
+# usage: 
+#  wget -O - https://git.io/fAtDW | bash
 echo 'deb http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list
 echo 'deb-src http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list
 cd /tmp
