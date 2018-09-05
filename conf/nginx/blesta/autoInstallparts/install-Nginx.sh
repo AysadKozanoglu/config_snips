@@ -2,6 +2,8 @@
 # author: Aysad Kozanoglu
 # email: aysadx@gmail.com
 #
+# wget -O - https://git.io/fAcPN | bash
+
 echo -e "install core packages...\n"
 apt-get -qq -y install build-essential git
 apt-get -qq -y install libpcre3 libpcre3-dev zlib1g zlib1g-dev
