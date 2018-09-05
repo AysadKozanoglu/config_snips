@@ -2,7 +2,7 @@
 #
 # author: Aysad Kozanoglu
 # email: aysadx@gmail.com
-#
+#  wget -O - https://git.io/fA0jz | bash
 
 read -p "give the domainname: " DOMAIN
 read -p "give the email for ssl: " EMAIL
