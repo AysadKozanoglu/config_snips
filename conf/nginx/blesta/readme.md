@@ -12,7 +12,7 @@ USAGE:
 
 Production ready -> Tested on Debian Jessie 8.11(recommended)
 
-Info: it is good to install on fresh installed debian or ubuntu
+Info: it is good to install on fresh installed debian
 
 
 Aysad Kozanoglu
