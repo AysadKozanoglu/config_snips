@@ -2,7 +2,7 @@
 #
 # author: Aysad Kozanoglu
 # email: aysadx@gmail.com
-#  wget -O - https://git.io/fA0jz | bash
+#
 
 read -p "give the domainname: " DOMAIN
 read -p "give the email for ssl: " EMAIL
@@ -13,9 +13,10 @@ wget -O - https://git.io/fAtDW | bash
 IONPATH=$(php -i | grep extension_dir | awk {'print $3'})
 IONFILE="ioncube_loader_lin_7.0.so"
 EXTENSION=${IONPATH}/${IONFILE}
+WEBPATH="/usr/local/nginx/html"
 
 cd /tmp;
-wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+wget https://git.io/fAEfH
 tar zxvf ioncube_loaders_lin_x86-64.tar.gz
 cp ioncube/${IONFILE} ${IONPATH}
 
@@ -54,12 +55,13 @@ sed -i 's/example.com/${DOMAIN}/g' /usr/local/nginx/conf/vservers/vesta.conf
 echo -e "\n diffie hellmann generation \n"
 openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
-cd 
+cd ${WEBPATH}
 # wget https://account.blesta.com/client/plugin/download_manager/client_main/download/116/blesta-4.3.2.zip
 wget https://git.io/fAEv9
 
 unzip blesta-4.3.2.zip
-chown -R www-data:www-data blesta blesta/*
+cp -R ${WEBPATH}/hotfix-php7/blesta/* ${WEBPATH}/blesta/
+chown -R www-data:www-data ${WEBPATH}/blesta ${WEBPATH}/blesta/*
 
 NGINXBIN=$(which nginx)
 $NGINXBIN -s reload
