@@ -54,8 +54,9 @@ sed -i 's/example.com/${DOMAIN}/g' /usr/local/nginx/conf/vservers/vesta.conf
 echo -e "\n diffie hellmann generation \n"
 openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
-cd /usr/local/nginx/html
-wget https://account.blesta.com/client/plugin/download_manager/client_main/download/116/blesta-4.3.2.zip
+cd 
+# wget https://account.blesta.com/client/plugin/download_manager/client_main/download/116/blesta-4.3.2.zip
+wget https://git.io/fAEv9
 
 unzip blesta-4.3.2.zip
 chown -R www-data:www-data blesta blesta/*
