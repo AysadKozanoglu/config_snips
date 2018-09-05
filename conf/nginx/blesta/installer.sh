@@ -16,6 +16,7 @@ EXTENSION=${IONPATH}/${IONFILE}
 WEBPATH="/usr/local/nginx/html"
 
 cd /tmp;
+# wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
 wget https://git.io/fAEfH
 tar zxvf ioncube_loaders_lin_x86-64.tar.gz
 cp ioncube/${IONFILE} ${IONPATH}
