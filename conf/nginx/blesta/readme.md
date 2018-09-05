@@ -1,6 +1,8 @@
 # BLESTA AUTO INSTALLER SCRIPT
 ### nginx + php7 + letsencrypt + ionCube + MySQL
 
+Blesta version : blesta-4.3.2
+
 script will install with compiling nginx from source and php7, mysql, ionCube, certbot (letsencrypt from git)
 
 USAGE:
