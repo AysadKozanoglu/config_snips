@@ -3,7 +3,7 @@
 
 Blesta version : blesta-4.3.2
 
-script will install with compiling nginx from source and php7, mysql, ionCube, certbot (letsencrypt from git)
+script will install with compiling nginx from source and php7, mysql, ionCube, certbot (letsencrypt from git) repo
 
 USAGE:
 ```
