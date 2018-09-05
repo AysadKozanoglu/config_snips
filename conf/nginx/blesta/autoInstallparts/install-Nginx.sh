@@ -17,4 +17,4 @@ wget -q https://git.io/fAEvp
 
 tar zxvf nginx-1.12.1.tar.gz && tar zxvf openssl-0.9.8zf.tar.gz
 cd nginx-1.12.1 && ./configure --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2' --with-ld-opt=-Wl,-z,relro --sbin-path=/usr/local/sbin --with-http_stub_status_module --with-http_ssl_module --user=www-data --group=www-data --with-openssl=/tmp/openssl-0.9.8zf/ --with-stream && make && make install
-echo -e "nginx php mysql installed\n"
+echo -e "nginx installed\n"
