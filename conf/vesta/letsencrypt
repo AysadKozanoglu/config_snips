@@ -14,7 +14,6 @@ cd letsencrypt
 service apache2 stop && nginx -s stop
 
 ./certbot-auto certonly --non-interactive --authenticator standalone --text --expand --agree-tos --keep-until-expiring  --email $YOURMAIL -d $YOURDOMAIN
-service apache2 start
 cp /etc/letsencrypt/live/${YOURDOMAIN}/cert.pem /usr/local/vesta/ssl/certificate.crt
 cp /etc/letsencrypt/live/${YOURDOMAIN}/privkey.pem /usr/local/vesta/ssl/certificate.key
 nginx && service apache2 start
