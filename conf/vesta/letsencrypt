@@ -1,0 +1,19 @@
+
+#! /bin/sh
+# author: Aysad Kozanoglu
+#
+#USAGE: 
+
+#YOURMAIL=email@example.com
+#YOURDOMAIN=domainexample.com
+
+read -p "give your email: " YOURMAIL
+read -p "give your domain: " YOURDOMAIN
+
+cd letsencrypt
+service apache2 stop
+./certbot-auto certonly --non-interactive --authenticator standalone --text --expand --agree-tos --keep-until-expiring  --email $YOURMAIL -d $YOURDOMAIN
+service apache2 start
+cp /etc/letsencrypt/live/mydomain.com/cert.pem /usr/local/vesta/ssl/certificate.crt
+cp /etc/letsencrypt/live/mydomain.com/privkey.pem /usr/local/vesta/ssl/certificate.key
+/etc/init.d/vesta restart
