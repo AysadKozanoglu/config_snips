@@ -1,9 +1,9 @@
 #!/bin/sh
  
 #####################################################
-# IPTables Firewall-Skript                          #
-# Author: Aysad Kozanoglu			                        #
-# usage:  iptables.sh start|stop                    #
+# IPTables Firewall-Skript                          
+# Author: Aysad Kozanoglu			                       
+# usage:  iptables.sh start|stop                    
 #####################################################
  
 # iptables suchen
