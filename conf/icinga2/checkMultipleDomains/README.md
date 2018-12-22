@@ -3,7 +3,7 @@ This Howto explains howto integrate own custom Service Check for checking host b
 example:
 ```
         vars.urlsCheck = true
-        vars.urls = "test1.com,test2.com,..."
+        vars.urls = "http://test1.com,https://test2.com,..."
 ```
 
 icinga2 version : version: r2.7.1-1
@@ -83,7 +83,7 @@ apply Service "nrpe urls check" {
 ```
 
 ### hosts variable set for urls check 
-set urlsCheck=true and urls=test1.com,test2.com,...
+set urlsCheck=true and urls="http://test1.com,https://test2.com,..."
 
 example
 
@@ -97,6 +97,6 @@ object Host "hostname-Example" {
         vars.os = "Linux"
         vars.sla = "24x7"
         vars.urlsCheck = true
-        vars.urls = "test1.com,test2.com"
+        vars.urls = "http://test1.com,https://test2.com,..."
 }
 ```
