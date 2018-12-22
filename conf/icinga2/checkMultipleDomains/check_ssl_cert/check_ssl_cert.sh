@@ -1,5 +1,8 @@
 #!/bin/sh
 #
+# simple usage: 
+# wget -O /usr/lib/nagios/plugins/check_ssl_cert "https://git.io/fhJWq"
+#
 # check_ssl_cert
 #
 # Checks an X.509 certificate:
