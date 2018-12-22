@@ -1,5 +1,6 @@
 " Vim syntax file
 " Language: nginx.conf
+" wget -O /root/.vim/syntax/nginx.vim "https://git.io/fhJsu"
 
 if exists("b:current_syntax")
   finish
