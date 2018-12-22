@@ -7,7 +7,7 @@ icinga2 version: version: r2.7.1-1
 
 ###Create Script check_ssl_cert
 ```
-wget -O /usr/lib/nagios/plugins/check_ssl_cert "https://git.io/fhJWq"
+wget -O /usr/lib/nagios/plugins/check_ssl_cert "https://git.io/fhJWr"
 ```
 
 ### Define Command ssl_check
