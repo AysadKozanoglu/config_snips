@@ -85,7 +85,11 @@ apply Service "nrpe urls check" {
 ```
 
 ### hosts variable set for urls check 
-set urlsCheck=true and urls="http://test1.com,https://test2.com,..."
+
+```
+        vars.urlsCheck = true
+        vars.urls = "http://test1.com,https://test2.com,..."
+```
 
 example
 
