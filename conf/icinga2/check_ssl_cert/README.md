@@ -1,8 +1,8 @@
-##SSL check with icinga2
+## SSL check with icinga2
 
 icinga2 version: version: r2.7.1-1
 
-###script path on icinga2:
+### script path on icinga2:
 /usr/lib/nagios/plugins/check_ssl_cert
 
 ###Create Script check_ssl_cert
@@ -10,7 +10,7 @@ icinga2 version: version: r2.7.1-1
 wget -O /usr/lib/nagios/plugins/check_ssl_cert "https://git.io/fhJWq"
 ```
 
-###Define Command ssl_check
+### Define Command ssl_check
 
 /etc/icinga2/conf.d/commands.conf
 ```
