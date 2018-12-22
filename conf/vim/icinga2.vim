@@ -4,6 +4,7 @@
 " Author:		Carlos Cesario <carloscesario@gmail.com>
 " Version:		0.0.1
 " Based:		javascript.vim / nagios.vim
+" wget -O /root/.vim/syntax/icinga2.vim "https://git.io/fhJs2"
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
