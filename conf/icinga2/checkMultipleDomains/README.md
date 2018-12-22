@@ -34,7 +34,7 @@ for url in $urls
   	   # -t try connection x times
 	   # -- timeout max execution 
 	   # --connect-timeout  max request execution time
-	    $WGET -t 2 --timeout=30 --connect-timeout=20 -q -O $(mktemp)"_checkUrl" $conntype"://"$url && echo $url ok >> $results || echo $url NOK >> $results
+	    $WGET -t 2 --timeout=30 --connect-timeout=20 -q -O $(mktemp)"_checkUrl" $url && echo $url ok >> $results || echo $url NOK >> $results
 done
 
 if cat $results | grep "NOK" > /dev/null; then
