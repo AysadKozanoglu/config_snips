@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # simple usage: 
-# wget -O /usr/lib/nagios/plugins/check_ssl_cert "https://git.io/fhJWq"
+# wget -O /usr/lib/nagios/plugins/check_ssl_cert "https://git.io/fhJWr"
 #
 # check_ssl_cert
 #
