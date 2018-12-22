@@ -2,6 +2,7 @@
 version: version: r2.7.1-1
 
 script path:
+
 /usr/lib/nagios/plugins/check_http  (comes with default installation of nagios als plugins)
 
 ### define custom Command for https check
