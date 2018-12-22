@@ -86,6 +86,7 @@ apply Service "nrpe urls check" {
 set urlsCheck=true and urls=test1.com,test2.com,...
 
 example
+/etc/icinga2/conf.d/hosts/exampleHost.conf
 ```
 object Host "hostname-Example" {
         import "generic-host"
