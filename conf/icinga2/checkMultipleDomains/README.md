@@ -1,12 +1,14 @@
 This Howto explains howto integrate own custom Service Check for checking host based multiple domains
 
+icinga2 version : version: r2.7.1-1
+
+
 example:
 ```
         vars.urlsCheck = true
         vars.urls = "http://test1.com,https://test2.com,..."
 ```
 
-icinga2 version : version: r2.7.1-1
 check script path: /usr/lib/nagios/plugins/check_urls
 
 ### check_urls Script
