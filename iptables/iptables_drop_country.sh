@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 # changed Author: Aysad Kozanoglu
 
 # wget -O iptables_drop_country.sh "https://git.io/fjON7"; chmod +x iptables_drop_country.sh;
-# /bin/sh iptables_drop_country.sh
+# /bin/bash iptables_drop_country.sh
 
 ###################
 ## BE CAREFULL   ##
