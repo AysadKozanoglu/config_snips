@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Author: Aysad Kozanoglu 
+# wget -O iptables_dnsRefl_prevention.sh "https://git.io/fjONu"; chmod +x iptables_dnsRefl_prevention.sh; /bin/sh iptables_dnsRefl_prevention.sh
+
 # Prorectiong DNS server against DNS reflections 
 
 iptables=`which iptables`
