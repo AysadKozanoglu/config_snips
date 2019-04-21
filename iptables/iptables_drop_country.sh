@@ -27,23 +27,23 @@ SPAMLIST="countrydrop"
 ZONEROOT="/root/iptables"
 DLROOT="http://www.ipdeny.com/ipblocks/data/countries"
  
-cleanOldRules(){
-$IPT -F
-$IPT -X
-$IPT -t nat -F
-$IPT -t nat -X
-$IPT -t mangle -F
-$IPT -t mangle -X
-$IPT -P INPUT ACCEPT
-$IPT -P OUTPUT ACCEPT
-$IPT -P FORWARD ACCEPT
-}
+#cleanOldRules(){
+#$IPT -F
+#$IPT -X
+#$IPT -t nat -F
+#$IPT -t nat -X
+#$IPT -t mangle -F
+#$IPT -t mangle -X
+#$IPT -P INPUT ACCEPT
+#$IPT -P OUTPUT ACCEPT
+#$IPT -P FORWARD ACCEPT
+#}
  
 # create a dir
 [ ! -d $ZONEROOT ] && /bin/mkdir -p $ZONEROOT
  
 # clean old rules
-cleanOldRules
+# cleanOldRules
  
 # create a new iptables list
 $IPT -N $SPAMLIST
