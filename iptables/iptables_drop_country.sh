@@ -1,12 +1,12 @@
 #!/bin/bash
 # changed Author: Aysad Kozanoglu
 
-# Example:
-# Purpose: Block all traffic from  CHINA (CN). Use ISO code. #
 # See url for more info - http://www.cyberciti.biz/faq/?p=3402
 # Author: nixCraft <www.cyberciti.biz> under GPL v.2.0+
 # -------------------------------------------------------------------------------
-ISO="cn ru kp kr" 
+
+# example: block usa (us) germany (de) türkiye (tr) china (cn )russia (ru) korea (kr) 
+ISO="us de tr cn ru kr" 
  
 ### Set PATH ###
 IPT=/sbin/iptables
