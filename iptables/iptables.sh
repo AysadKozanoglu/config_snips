@@ -33,6 +33,7 @@ case "$1" in
       $iptables -I garbage -p UDP -j LOG --log-prefix="DROP UDP-Packet: " --log-level info
       $iptables -I garbage -p ICMP -j LOG --log-prefix="DROP ICMP-Packet: " --log-level info
  
+
       # Default Policy
       $iptables -P INPUT DROP
       #$iptables -P OUTPUT DROP
