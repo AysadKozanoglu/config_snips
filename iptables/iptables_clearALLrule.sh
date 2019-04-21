@@ -1,6 +1,9 @@
 #!/bin/sh
+
 # Author: Aysad Kozanoglu
 # wget -O iptables_clearALLrule.sh "https://git.io/fjON4"; /bin/sh iptables_clearALLrule.sh
+
+# Clear all iptables rules
 
 iptables=`which iptables`
 
