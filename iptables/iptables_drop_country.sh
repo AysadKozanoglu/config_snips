@@ -1,6 +1,15 @@
 #!/bin/bash
 # changed Author: Aysad Kozanoglu
 
+###################
+## BE CAREFULL   ##
+#
+# iptables rules can be take along time 
+# if a lot of rules must be loaded on reboot
+#
+# do not exaggerate 
+###################
+
 # See url for more info - http://www.cyberciti.biz/faq/?p=3402
 # Author: nixCraft <www.cyberciti.biz> under GPL v.2.0+
 # -------------------------------------------------------------------------------
