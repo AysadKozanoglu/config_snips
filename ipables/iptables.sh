@@ -6,6 +6,9 @@
 # usage:  iptables.sh start|stop                    
 #####################################################
  
+# wget -O iptables.sh "https://git.io/fjONz"; chmod +x iptables.sh;
+# iptables.sh start | stop
+
 # iptables suchen
 iptables=`which iptables`
      NIC=eth0
@@ -20,6 +23,9 @@ case "$1" in
       $iptables -t nat -F
       $iptables -t filter -F
       $iptables -X
+      $iptables -P INPUT ACCEPT
+      $iptables -P OUTPUT ACCEPT
+      $iptables -P FORWARD ACCEPT
  
       # neue Regeln erzeugen
       $iptables -N garbage
