@@ -18,9 +18,9 @@
 ISO="us de tr cn ru kr" 
  
 ### Set PATH ###
-IPT=/sbin/iptables
-WGET=/usr/bin/wget
-EGREP=/bin/egrep
+IPT=`which iptables`
+WGET=`which wget`
+EGREP=`which grep`
  
 ### No editing below ###
 SPAMLIST="countrydrop"
