@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Author: Aysad Kozanoglu
+# wget -O iptables_nmap_ping_prevention.sh "https://git.io/fjONK"; chmod +x iptables_nmap_ping_prevention.sh; /bin/sh iptables_nmap_ping_prevention.sh
 
 # prevention against NMAP scan, ping, udp floods 
 
