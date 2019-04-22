@@ -6,12 +6,13 @@
 # Prorectiong DNS server against DNS reflections 
 
 iptables=`which iptables`
+     NIC=eth0
 
 $iptables -N udp-flood
 $iptables -A udp-flood -m limit --limit 4/second --limit-burst 4 -j RETURN
 $iptables -A udp-flood -j DROP
-$iptables -A INPUT -i eth0 -p udp -j udp-flood
-$iptables -A INPUT -i eth0 -f -j DROP
+$iptables -A INPUT -i $NIC -p udp -j udp-flood
+$iptables -A INPUT -i $NIC -f -j DROP
 $iptables -N DNSAMPLY
 $iptables -A DNSAMPLY -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
 $iptables -A DNSAMPLY -p udp -m hashlimit --hashlimit-srcmask 24 --hashlimit-mode srcip --hashlimit-upto 30/m --hashlimit-burst 10 --hashlimit-name DNSTHROTTLE --dport 53 -j ACCEPT
