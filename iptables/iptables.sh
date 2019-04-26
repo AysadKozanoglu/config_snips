@@ -75,6 +75,11 @@ case "$1" in
       $iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT
       # PortScan
       $iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
+      
+      # allow only request and response protocoll for ping (8,0)
+      $iptables -A INPUT   -p icmp --icmp-type 8 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+      $iptables -A OUTPUT  -p icmp --icmp-type 0  -m state --state ESTABLISHED,RELATED -j ACCEPT
+      
       # Ping-of-Death
       $iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
       # HTTP Limit pro Minute
