@@ -19,3 +19,5 @@ group based
 
 ``` dsh -M -c -g group1  " uptime > /tmp/t; free -m >> /tmp/t; cat /tmp/t"```
 
+
+fuck off Puppet/ansible
