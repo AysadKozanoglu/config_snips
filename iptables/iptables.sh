@@ -6,7 +6,7 @@
 # usage:  iptables.sh start|stop                    
 #####################################################
  
-# wget -O iptables.sh "https://git.io/fjONz"; chmod +x iptables.sh;
+# wget -O iptables.sh "https://git.io/fjXJE"; chmod +x iptables.sh;
 # iptables.sh start | stop
 
 # iptables suchen
