@@ -10,7 +10,7 @@
 #
 
 tmp=/tmp/netconns
-minlimit=10
+minlimit=1
 
 exec=$(netstat -atun | awk '{print $5}' | cut -d: -f1 | sed -e '/^$/d' |sort| uniq -c | sort -r > $tmp)
 
