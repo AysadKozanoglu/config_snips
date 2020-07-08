@@ -1,4 +1,14 @@
+===== 1 one host =====
+
 color_scheme 2
 time-format %T
 date-format %d/%b/%Y
 log_format %h - %^ [%d:%t %^] "%r" %s %b "%R" "%u"
+
+
+====== 2 with multiplevhosts====== 
+
+color_scheme 1
+time-format %T
+date-format %d/%b/%Y
+log_format %v %h - - [%d:%t %^] "%r" %s %b - "%u"
